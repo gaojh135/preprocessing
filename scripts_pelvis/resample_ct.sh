@@ -1,3 +1,4 @@
+# Resample Pelvis-CT-1*1*1 batch script
 #!/bin/bash
 # Run this in a OS with unix-based syntax
 
@@ -5,8 +6,8 @@
 START_TIME=$SECONDS
 
 # Modify according to the location of your data
-initial='../Task1/brain/'
-dirOut='../Task1_resample/brain/'
+initial='../../Task1/pelvis/'
+dirOut='../../Task1_resample/pelvis/'
 
 #Prepare calculation of elapsed time for the script and logging
 Now=`date`
@@ -17,8 +18,7 @@ echo -e $script_name $Now  >> ${dirOut}Logfile.txt
 
 # Loop over patients and resample CT to 1x1x1
 declare -a patients
-readarray patients < ../txt/1_brain_train.txt
-readarray -t patients < ../txt/1_brain_train.txt
+readarray -t patients < ../txt/1_pelvis_train.txt
 
 for patIndex in $(seq 0 $((${#patients[*]}-1)))
 do
@@ -32,8 +32,8 @@ do
     mkdir -p $TMP
 
     # Resample CT to 1x1x1
-    echo "Registering..."
-    python ../pre_process_tools.py register --f ${TMP}ct_resampled.nii.gz --m ${TMP}mr_or.nii.gz --o ${TMP}mr_T1_registered.nii.gz --p ./param_files/parameters_MR.txt
+    echo "Resampling CT"
+    python3 pre_process_tools.py resample --i ${initial}/${patient}/ct.nii.gz --o ${TMP}/ct_resampled.nii.gz --s 1 1 1
 done
 
 ELAPSED_TIME=$(($SECONDS - $START_TIME))
