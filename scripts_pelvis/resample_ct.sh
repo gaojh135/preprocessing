@@ -28,12 +28,13 @@ do
     patientnr=${patient:1}
 
     # Define path to temporary output directory
-    TMP=${dirOut}${patient}
-    mkdir -p $TMP
+    TMP1=${initial}${patient}/
+    TMP2=${dirOut}${patient}/
+    mkdir -p $TMP2
 
     # Resample CT to 1x1x1
     echo "Resampling CT"
-    python3 pre_process_tools.py resample --i ${initial}/${patient}/ct.nii.gz --o ${TMP}/ct_resampled.nii.gz --s 1 1 1
+    python3 ../pre_process_tools.py resample --i ${TMP1}ct.nii.gz --o ${TMP2}ct_resampled.nii.gz --s 1 1 1
 done
 
 ELAPSED_TIME=$(($SECONDS - $START_TIME))

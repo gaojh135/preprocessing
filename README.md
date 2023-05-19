@@ -9,10 +9,3 @@ preprocess for SynthRAD2023
 
 [Task2(CBCT-to-sCT)(10.1GB)](https://zenodo.org/record/7260705/files/Task2.zip?download=1)
 
-## Resample ct 1×1×1 
-
-[Baidu Drive](https://pan.baidu.com/s/1M00ihRxyLoS16sYYwTduJQ) 提取码：wl9u
-
-## Register MRI to CT
-
-[Baidu Drive]()
