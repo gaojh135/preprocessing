@@ -1,4 +1,4 @@
-# Resample Pelvis-CT-1*1*1 batch script
+# batch script -- CT-Pelvis 1*1*1
 #!/bin/bash
 # Run this in a OS with unix-based syntax
 

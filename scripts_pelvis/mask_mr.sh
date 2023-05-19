@@ -1,4 +1,4 @@
-# batch script -- Register MR-Pelvis 
+# batch script -- Mask MR-Pelvis radius=12
 #!/bin/bash
 # Run this in a OS with unix-based syntax
 
@@ -6,9 +6,8 @@
 START_TIME=$SECONDS
 
 # Modify according to the location of your data
-initial1='../../Task1/pelvis/'
-initial2='../../Task1_resample/pelvis/'
-dirOut='../../Task1_mr_T1_registered/pelvis/'
+initial='../../Task1_mr_T1_registered/pelvis/'
+dirOut='../../Task1_mask_MR/pelvis/'
 
 #Prepare calculation of elapsed time for the script and logging
 Now=`date`
@@ -28,14 +27,14 @@ do
     patientnr=${patient:1}
 
     # Define path to temporary output directory
-    TMP1=${initial1}${patient}/
-    TMP2=${initial2}${patient}/
-    TMP3=${dirOut}${patient}/
-    mkdir -p $TMP3
+    TMP1=${initial}${patient}/
+    TMP2=${dirOut}${patient}/
+    mkdir -p $TMP2
 
     # Register MRI to CT according to the parameter file specified
-    echo "Registering..."
-    python3 ../pre_process_tools.py register --f ${TMP2}ct_resampled.nii.gz --m ${TMP1}mr.nii.gz --o ${TMP3}mr_T1_registered.nii.gz --p ../param_files/parameters_MR.txt
+    #Mask MR
+    echo "Masking"
+    python3 ../pre_process_tools.py segment --i ${TMP1}mr_T1_registered.nii.gz --o ${TMP2}mask_MR.nii.gz --r 12
 done
 
 ELAPSED_TIME=$(($SECONDS - $START_TIME))

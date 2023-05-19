@@ -1,5 +1,4 @@
-# Resample Brain-CT-1*1*1 batch script
-#!/bin/bash
+# batch script -- Resample CT-Brain 1*1*1
 # Run this in a OS with unix-based syntax
 
 # Measure Elapsed time of the script:

@@ -1,4 +1,4 @@
-# Register MR-Brain batch script
+# batch script -- Register MR-Brain
 #!/bin/bash
 # Run this in a OS with unix-based syntax
 
