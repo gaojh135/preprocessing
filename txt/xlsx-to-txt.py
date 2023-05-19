@@ -1,8 +1,10 @@
 import pandas as pd
 
 # Define path to input and output files
-input_file = '1_pelvis_train.xlsx'
-output_file = '1_pelvis_train.txt'
+input_file = '1_brain_train.xlsx'
+output_file = '1_brain_train.txt'
+# input_file = '1_pelvis_train.xlsx'
+# output_file = '1_pelvis_train.txt'
 
 # Define column names to read from input file
 columns_to_read = ['ID']

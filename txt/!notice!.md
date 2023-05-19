@@ -1,0 +1,1 @@
+Please run xlsx-to-txt.py again to ensure that there are no file incompatibilities
