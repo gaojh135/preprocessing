@@ -36,7 +36,7 @@ do
 
     #Correct FOV
     python3 ../pre_process_tools.py correct --i ${TMP1}mr.nii.gz --ii ${TMP2}ct_resampled.nii.gz \
-    --f ../param_files/mr_T1_registered_parameters.txt --mask_crop ${TMP3}mask_MR.nii.gz --o ${TMP4}mask_MR_corrected.nii.gz
+    --f ../param_files/registration_parameters_pelvis.txt --mask_crop ${TMP3}mask_MR.nii.gz --o ${TMP4}mask_MR_corrected.nii.gz
 done
 
 ELAPSED_TIME=$(($SECONDS - $START_TIME))
